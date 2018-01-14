@@ -32,21 +32,28 @@ public:
     std::string price;
     std::string cost;
     std::string fee;
+    std::string amountValue;
+    std::string alpha;
 
 public:
     Transaction();
     ~Transaction();
+    void Print();
+    void Export(std::ofstream &, int);
+    friend std::ostream& operator<<(std::ostream &, const Date &);
 };
 
 class History {
-private:
+protected:
     std::vector<Transaction> txs;
 
 public:
     History();
+    std::vector<Transaction>* GetTxs();
     void Insert(Transaction);
-    void Sort(Categories::Category);
-    void Print();
-    void Export();
-    friend std::ostream& operator<<(std::ostream &, const Date &);
+    void Export(std::string);
+
+public:
+    virtual void Sort(Categories::Category);
+    virtual void Print(std::string);
 };

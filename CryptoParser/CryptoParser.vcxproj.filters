@@ -30,6 +30,9 @@
     <ClInclude Include="include\Categories.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\CoinHistory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -45,6 +48,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Transaction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CoinHistory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

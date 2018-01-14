@@ -57,6 +57,11 @@ History::History() {
 
 }
 
+std::vector<Transaction>* History::GetTxs()
+{
+    return &txs;
+}
+
 void History::Insert(Transaction tx) {
     txs.push_back(tx);
 }
@@ -93,22 +98,10 @@ void History::Sort(Categories::Category category) {
     }
 }
 
-std::ostream& operator<<(std::ostream &os, const Date &date) {
-    os << std::setw(4) << std::right << date.year
-        << std::setw(1) << std::right << '-'
-        << std::setw(2) << std::right << date.month 
-        << std::setw(1) << std::right << '-'
-        << std::setw(2) << std::right << date.day
-        << std::setw(1) << std::right << "   "
-        << std::setw(2) << std::right << date.hour
-        << std::setw(1) << std::right << ':'
-        << std::setw(2) << std::right << date.min
-        << std::setw(1) << std::right << ':'
-        << std::setw(2) << std::right << date.sec;
-    return os;
-}
+void History::Print(std::string type) {
+    if (!type.empty())
+        std::cout << type << " History" << std::endl;
 
-void History::Print() {
     std::cout
         << std::setw(5) << std::left << "ID"
         << std::setw(24) << std::left << "Date"
@@ -120,38 +113,19 @@ void History::Print() {
         << std::setw(15) << std::left << "Cost [R]"
         << '\n' << std::endl;
 
-    for (Transaction tx : txs) {
-        std::cout
-            << std::setw(5) << std::left << tx.id
-            << tx.date << "   "
-            << std::setw(10) << std::left << tx.exchange
-            << std::setw(10) << std::left << tx.order
-            << std::setw(10) << std::left << tx.pair
-            << std::setw(18) << std::left << tx.amount
-            << std::setw(15) << std::left << tx.price
-            << std::setw(15) << std::left << tx.cost
-            << std::endl;
-    }
+    for (Transaction tx : txs)
+        tx.Print();
+
+    std::cout << '\n';
 }
 
-void History::Export() {
-    std::string fileName = "output.csv";
+void History::Export(std::string fileName) {
     std::ofstream outFile(fileName);
 
-    outFile << "Id,Date,Exchange,Order,Pair,Amt Rcvd/Sold,Price [R],Cost [R]\n";
+    outFile << "Id,Date,Exchange,Order,Pair,Amt Rcvd/Sold,Price [R],Cost [R]\n\n";
 
-    for (int i = 0; i < txs.size(); i++) {
-        outFile
-            << i+1 << ","
-            << txs[i].date << ","
-            << txs[i].exchange << ","
-            << txs[i].order << ","
-            << txs[i].pair << ","
-            << txs[i].amount << ","
-            << txs[i].price << ","
-            << txs[i].cost << ","
-            << "\n";
-    }
+    for (int i = 0; i < txs.size(); i++)
+        txs[i].Export(outFile, i);
 
     outFile.close();
 }

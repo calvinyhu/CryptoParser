@@ -151,11 +151,13 @@
   <ItemGroup>
     <ClInclude Include="Categories.h" />
     <ClInclude Include="include\Categories.h" />
+    <ClInclude Include="include\CoinHistory.h" />
     <ClInclude Include="include\History.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CoinHistory.cpp" />
     <ClCompile Include="src\CryptoParser.cpp" />
     <ClCompile Include="src\Date.cpp" />
     <ClCompile Include="src\History.cpp" />
