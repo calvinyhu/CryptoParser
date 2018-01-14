@@ -21,13 +21,45 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\History.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Categories.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Categories.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CryptoParser.cpp">
+    <ClCompile Include="src\History.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\CryptoParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Transaction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\binance.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\gdax\GDAX1.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\gdax\GDAX2.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\coinbase\Coinbase-59e04cc6ec3b1c01676d180b-Transfers-Report-2018-01-13-22_03_36.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

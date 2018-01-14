@@ -72,12 +72,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\calvi\Google Drive\Personal\Visual Studio\CryptoParser\CryptoParser\include;C:\Users\calvi\Google Drive\Personal\Visual Studio\CryptoParser\CryptoParser;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\calvi\Google Drive\Personal\Visual Studio\CryptoParser\CryptoParser\include;C:\Users\calvi\Google Drive\Personal\Visual Studio\CryptoParser\CryptoParser;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -147,17 +149,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Categories.h" />
+    <ClInclude Include="include\Categories.h" />
+    <ClInclude Include="include\History.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CryptoParser.cpp" />
+    <ClCompile Include="src\CryptoParser.cpp" />
+    <ClCompile Include="src\Date.cpp" />
+    <ClCompile Include="src\History.cpp" />
+    <ClCompile Include="src\Transaction.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\binance.csv" />
+    <None Include="resource\coinbase\Coinbase-59e04cc6ec3b1c01676d180b-Transfers-Report-2018-01-13-22_03_36.csv" />
+    <None Include="resource\gdax\GDAX1.csv" />
+    <None Include="resource\gdax\GDAX2.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
